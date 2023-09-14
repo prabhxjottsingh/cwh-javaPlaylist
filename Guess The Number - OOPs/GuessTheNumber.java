@@ -34,8 +34,9 @@ class Game{
     public void takeUserInput(){
         countGuessingAttempts++;
         System.out.print("Guess the Number: ");
-        Scanner sc = new Scanner(System.in);
-        numberEnteredByUser = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            numberEnteredByUser = sc.nextInt();
+        }
     }
 
     public boolean isNumberCorrect(){
